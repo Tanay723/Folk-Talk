@@ -1,7 +1,8 @@
+// This code is setting up Firebase in a React application.
 
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "firebase/app"; // The app object returned represents the Firebase instance.
+import { getAuth } from "firebase/auth"; // The getAuth() function provides the authentication instance for the app.
+import { getFirestore } from "firebase/firestore"; //The getFirestore() function provides the Firestore database instance for performing CRUD operations
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -15,5 +16,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app)
-export const db = getFirestore(app)
+export const auth = getAuth(app) //auth is exported to be used for authentication operations (like logging in users).
+
+export const db = getFirestore(app) //db is exported to be used for database operations
