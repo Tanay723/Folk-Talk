@@ -11,16 +11,16 @@ const Detail = () => {
   const {currentUser} = useUserStore()
 
   const handleBlock = async() =>{
-       if(!user) return 
+       if(!user) return  //This checks if the user object exists. If not, the function exits early to avoid errors.
 
-       const userDocRef = doc(db,"users",currentUser.id)
+       const userDocRef = doc(db,"users",currentUser.id) //Creates a reference to the document for the current user (currentUser.id) in the users collection of Firestore.
 
        try {
         await updateDoc(userDocRef,{
-          blocked: isReceiverBlocked ? arrayRemove(user.id) : arrayUnion(user.id),
+          blocked: isReceiverBlocked ? arrayRemove(user.id) : arrayUnion(user.id), //if isReceiverBlocked is true, it removes the user.id from the blocked list; if false, it adds the user.id to the list.
         })
 
-        changeBlock()
+        changeBlock() //Calls the changeBlock function to update the UI or perform other actions after the block/unblock operation.
 
        } catch (err) {
         console.log(err)
