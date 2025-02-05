@@ -29,7 +29,7 @@ const handleRegister = async (e) =>{
     e.preventDefault() // it stops the form from reloading the page when submitted
     const formData= new FormData(e.target)
 
-    const {username,email,password} = Object.fromEntries(formData);
+    const {username,email,password} = Object.fromEntries(formData);  // is used to convert the formData into a JavaScript object and extract specific fields (email and password).
     
 
     try{
